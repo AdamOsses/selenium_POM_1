@@ -5,8 +5,8 @@ from tests.base_test import BaseTest
 
 class HomePageTest(BaseTest):
     def test_home_page_respond(self):
-        print("home_page_respond working...")
-        self.assertTrue(True)
+        print(f"Page {self.driver.current_url} working...")
+        self.assertTrue(self.driver.current_url, "https://www.demoblaze.com/")
 
 
 '''

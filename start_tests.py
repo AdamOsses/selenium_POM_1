@@ -2,7 +2,7 @@ import unittest
 from tests.home_page_test import HomePageTest
 
 
-# Zmienna test_list pobiera testy do uruchomienia
+# tests to run
 tests_list = [
     unittest.TestLoader().loadTestsFromTestCase(HomePageTest)
 ]
