@@ -8,6 +8,9 @@ class HomePageTest(BaseTest):
         print(f"Page {self.driver.current_url} working...")
         self.assertTrue(self.driver.current_url, "https://www.demoblaze.com/")
 
+    def test_locators(self):
+        pass    
+
 
 '''
 if __name__ == "__main__":
