@@ -2,6 +2,7 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from tests.base_test import BaseTest
+from pages.product_page import ProductPage
 from time import sleep
 
 
@@ -15,6 +16,14 @@ class HomePageTest(BaseTest):
         # temp method for locator testing
         products = self.home_page.get_products()
         products[1].click()
+        sleep(4)
+        self.product_page = ProductPage(self.driver)
+        self.product_page.click_product_store_icon()
+        sleep(4)
+        products = self.home_page.get_products()
+        products[0].click()
+        sleep(4)
+        self.product_page.click_home_button()
         sleep(4)
 
 
