@@ -3,4 +3,4 @@ from pages.site_locators import SiteLocators
 
 
 class HomePageLocators(SiteLocators):
-    pass
+    PRODUCTS = (By.XPATH, '//img[@class="card-img-top img-fluid"]')
