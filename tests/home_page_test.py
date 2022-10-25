@@ -12,6 +12,9 @@ class HomePageTest(BaseTest):
         print(f"Page {self.driver.current_url} working...")
         self.assertTrue(self.driver.current_url, "https://www.demoblaze.com/")
 
+    def test_next_prev_button(self):
+        pass
+
     def test_locators(self):
         # temp method for locator testing
         products = self.home_page.get_products()
