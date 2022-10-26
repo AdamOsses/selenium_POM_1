@@ -17,16 +17,14 @@ class HomePageTest(BaseTest):
 
     def test_locators(self):
         # temp method for locator testing
+        first_product = self.home_page.get_product_by_number(1)
+        print(first_product)
         products = self.home_page.get_all_products_on_page()
         products[1].click()
-        sleep(4)
+        sleep(2)
         self.product_page = ProductPage(self.driver)
         self.product_page.click_product_store_icon()
-        sleep(4)
-        products = self.home_page.get_all_products_on_page()
-        products[0].click()
-        sleep(4)
-        self.product_page.click_home_button()
-        sleep(4)
+        sleep(2)
+
 
 
