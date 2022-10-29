@@ -28,3 +28,4 @@ class HomePage(BasePage):
 
     def prev_button_click(self):
         self.driver.find_element(*HomePageLocators.PREVIOUS_BUTTON).click()
+
