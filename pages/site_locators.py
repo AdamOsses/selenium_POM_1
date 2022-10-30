@@ -13,5 +13,11 @@ class SiteLocators:
     LOG_OUT = (By.ID, "logout2")
     WELCOME_USER = (By.ID, "nameofuser")
 
+    PAGE_URL = {
+        "home_page": "https://www.demoblaze.com/",
+        "product_page": "https://www.demoblaze.com/prod.html?idp_=",
+        "cart_page": "https://www.demoblaze.com/cart.html"
+    }
+
 # login: ahk
 # password: ahk

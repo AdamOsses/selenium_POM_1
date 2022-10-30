@@ -1,7 +1,11 @@
+from pages.site_locators import SiteLocators
 
 class BasePage:
     def __init__(self, driver):
         self.driver = driver
+
+    def get_page_url(self, name):
+        return SiteLocators.PAGE_URL[name]
 
     # entire site buttons
     def home_button_click(self):
