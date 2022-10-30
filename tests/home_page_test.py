@@ -7,10 +7,24 @@ from time import sleep
 
 
 class HomePageTest(BaseTest):
-    #@unittest.skip("test_home_page_respond")
+    # @unittest.skip("test_home_page_respond")
     def test_home_page_respond(self):
-        print(f"Home page: {self.driver.current_url} working...")
+        # print(f"Home page: {self.driver.current_url} working...")
         self.assertTrue(self.driver.current_url, self.home_page.get_page_url("home_page"))
+
+    def test_product_store_icon_click(self):
+        products = self.home_page.get_all_products_on_page()
+        products[0].click()
+        product_page = ProductPage(self.driver)
+        product_page.product_store_button_click()
+        self.assertEqual(self.driver.current_url, self.home_page.get_page_url("home_page"))
+
+    def test_home_icon_click(self):
+        products = self.home_page.get_all_products_on_page()
+        products[0].click()
+        product_page = ProductPage(self.driver)
+        product_page.home_button_click()
+        self.assertEqual(self.driver.current_url, self.home_page.get_page_url("home_page"))
 
     @unittest.skip("test_next_prev_button")
     def test_next_prev_button(self):

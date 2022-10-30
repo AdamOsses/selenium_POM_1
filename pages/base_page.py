@@ -9,6 +9,9 @@ class BasePage:
         return SiteLocators.PAGE_URL[name]
 
     # entire site buttons
+    def product_store_button_click(self):
+        self.driver.find_element(*SiteLocators.PRODUCTS_STORE).click()
+
     def home_button_click(self):
         self.driver.find_element(*SiteLocators.HOME).click()
 

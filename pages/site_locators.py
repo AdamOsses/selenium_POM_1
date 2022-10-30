@@ -14,7 +14,7 @@ class SiteLocators:
     WELCOME_USER = (By.ID, "nameofuser")
 
     PAGE_URL = {
-        "home_page": "https://www.demoblaze.com/",
+        "home_page": "https://www.demoblaze.com/index.html",
         "product_page": "https://www.demoblaze.com/prod.html?idp_=",
         "cart_page": "https://www.demoblaze.com/cart.html"
     }
