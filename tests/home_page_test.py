@@ -7,15 +7,16 @@ from time import sleep
 
 
 class HomePageTest(BaseTest):
-    @unittest.skip("Skipping home page respond")
+    #@unittest.skip("test_home_page_respond")
     def test_home_page_respond(self):
-        print(f"Page {self.driver.current_url} working...")
-        self.assertTrue(self.driver.current_url, "https://www.demoblaze.com/")
+        print(f"Home page: {self.driver.current_url} working...")
+        self.assertTrue(self.driver.current_url, self.home_page.get_page_url("home_page"))
 
-    @unittest.skip("Skipping")
+    @unittest.skip("test_next_prev_button")
     def test_next_prev_button(self):
         pass
 
+    @unittest.skip("test_locators")
     def test_locators(self):
         # temp method for locator testing
         print(self.driver.current_url)
@@ -37,7 +38,7 @@ class HomePageTest(BaseTest):
         sleep(2)
         self.driver.get(self.product_page.get_page_url("cart_page"))
         sleep(2)
-        
+
 
 
 
