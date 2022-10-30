@@ -12,19 +12,27 @@ class HomePageTest(BaseTest):
         # print(f"Home page: {self.driver.current_url} working...")
         self.assertTrue(self.driver.current_url, self.home_page.get_page_url("home_page"))
 
-    def test_product_store_icon_click(self):
+    def test_product_store_button_click(self):
         products = self.home_page.get_all_products_on_page()
         products[0].click()
         product_page = ProductPage(self.driver)
         product_page.product_store_button_click()
         self.assertEqual(self.driver.current_url, self.home_page.get_page_url("home_page"))
 
-    def test_home_icon_click(self):
+    def test_home_button_click(self):
         products = self.home_page.get_all_products_on_page()
         products[0].click()
         product_page = ProductPage(self.driver)
         product_page.home_button_click()
         self.assertEqual(self.driver.current_url, self.home_page.get_page_url("home_page"))
+
+    def test_contact_button_click(self):
+        self.home_page.contact_button_click()
+        self.assertTrue(self.home_page.check_if_contact_modal_visible(), "Contact modal not visible.")
+
+    def test_about_us_button_click(self):
+        self.home_page.about_us_button_click()
+        self.assertTrue(self.home_page.check_if_about_us_modal_visible(), "About us modal not visible.")
 
     @unittest.skip("test_next_prev_button")
     def test_next_prev_button(self):
@@ -41,7 +49,7 @@ class HomePageTest(BaseTest):
         cart_url_test = self.home_page.get_page_url("cart_page")
         print(f"Cart url: {cart_url_test}")
 
-        first_product = self.home_page.get_product_by_number(1)
+        first_product = self.home_page.get_product_data_by_number(1)
         print(f"Prod no.1: {first_product}")
         products = self.home_page.get_all_products_on_page()
         products[1].click()
