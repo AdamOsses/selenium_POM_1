@@ -21,6 +21,22 @@ class HomePage(BasePage):
         else:
             return True
 
+    def check_if_log_in_modal_visible(self):
+        try:
+            self.driver.find_element(*HomePageLocators.LOG_IN_MODAL)
+        except NoSuchElementException:
+            return False
+        else:
+            return True
+
+    def check_if_sign_up_modal_visible(self):
+        try:
+            self.driver.find_element(*HomePageLocators.SIGN_UP_MODAL)
+        except NoSuchElementException:
+            return False
+        else:
+            return True
+
     def get_all_products_on_page(self):
         # this helps PyCharm to autocomplete
         # assert isinstance(self.driver, webdriver.Chrome())

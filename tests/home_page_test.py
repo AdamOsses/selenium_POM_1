@@ -34,6 +34,14 @@ class HomePageTest(BaseTest):
         self.home_page.about_us_button_click()
         self.assertTrue(self.home_page.check_if_about_us_modal_visible(), "About us modal not visible.")
 
+    def test_log_in_button_click(self):
+        self.home_page.log_in_button_click()
+        self.assertTrue(self.home_page.check_if_log_in_modal_visible(), "Log in modal not visible.")
+
+    def test_sign_up_button_click(self):
+        self.home_page.sign_up_button_click()
+        self.assertTrue(self.home_page.check_if_sign_up_modal_visible(), "Sign up modal not visible. ")
+
     @unittest.skip("test_next_prev_button")
     def test_next_prev_button(self):
         pass

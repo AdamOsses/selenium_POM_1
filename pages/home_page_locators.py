@@ -9,6 +9,8 @@ class HomePageLocators(SiteLocators):
     CONTACT_MODAL_MESSAGE = (By.ID, 'message-text')
 
     ABOUT_US_MODAL = (By.XPATH, '//div[@class="modal fade show" and @id="videoModal"]')
+    LOG_IN_MODAL = (By.XPATH, '//div[@class="modal fade show" and @id="logInModal"]')
+    SIGN_UP_MODAL = (By.XPATH, '//div[@class="modal fade show" and @id="signInModal"]')
 
     PRODUCTS = (By.XPATH, '//img[@class="card-img-top img-fluid"]')
     PRODUCT_NAME = []
