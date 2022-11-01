@@ -3,6 +3,7 @@ from pages.site_locators import SiteLocators
 
 
 class HomePageLocators(SiteLocators):
+    # navbar locators
     CONTACT_MODAL = (By.XPATH, '//div[@class="modal fade show" and @id="exampleModal"]')
     CONTACT_MODAL_MAIL = (By.ID, 'recipient-email')
     CONTACT_MODAL_NAME = (By.ID, 'recipient-name')
@@ -17,6 +18,7 @@ class HomePageLocators(SiteLocators):
     LOG_IN_BUTTON = (By.XPATH, '//button[@onclick="logIn()"]')
     CLEAR_BUTTON = (By.XPATH, '//button[contains(text(), "Close")] //following-sibling::button[@onclick="logIn()"]')
 
+    # products locators
     PRODUCTS = (By.XPATH, '//img[@class="card-img-top img-fluid"]')
     PRODUCT_NAME = []
     PRODUCT_PRICE = []

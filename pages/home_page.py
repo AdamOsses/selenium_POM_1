@@ -39,7 +39,7 @@ class HomePage(BasePage):
         else:
             return True
 
-    def check_log_out_button_visible(self):
+    def check_if_log_out_button_visible(self):
         pass
         # click log in // fill name & pswrd // clickbtn login - check if logout btn visible
 
