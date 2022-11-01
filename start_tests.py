@@ -1,7 +1,7 @@
 import unittest
 from tests.home_page_test import HomePageTest
 
-test_case_to_test = "test_sign_up_button_click"
+test_case_to_test = "test_log_out_button_click"
 
 # tests to run
 tests_list = [

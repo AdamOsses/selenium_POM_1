@@ -2,6 +2,8 @@ from selenium import webdriver
 from pages.base_page import BasePage
 from pages.home_page_locators import HomePageLocators
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
+# this helps PyCharm to autocomplete
+# assert isinstance(self.driver, webdriver.Chrome())
 
 
 class HomePage(BasePage):
@@ -37,9 +39,28 @@ class HomePage(BasePage):
         else:
             return True
 
+    def check_log_out_button_visible(self):
+        pass
+        # click log in // fill name & pswrd // clickbtn login - check if logout btn visible
+
+    def fill_username_field(self, name):
+        #assert isinstance(self.driver, webdriver.Chrome())
+        username_field = self.driver.find_element(*HomePageLocators.USERNAME_FIELD)
+        username_field.click()
+        username_field.clear()
+        username_field.send_keys(name)
+
+    def fill_password_field(self, password):
+        password_field = self.driver.find_element(*HomePageLocators.PASSWORD_FIELD)
+        password_field.click()
+        password_field.clear()
+        password_field.send_keys(password)
+
+    def log_in_modal_button_click(self):
+        self.driver.find_element(*HomePageLocators.LOG_IN_BUTTON).click()
+
+    # -------
     def get_all_products_on_page(self):
-        # this helps PyCharm to autocomplete
-        # assert isinstance(self.driver, webdriver.Chrome())
         products = self.driver.find_elements(*HomePageLocators.PRODUCTS)
         return products
 
@@ -48,7 +69,6 @@ class HomePage(BasePage):
         return len(products_count)
 
     def get_product_data_by_number(self, nr):
-        # assert isinstance(self.driver, webdriver.Chrome())
         product_name = self.driver.find_element(*HomePageLocators.PRODUCT_NAME[nr]).text
         product_price = self.driver.find_element(*HomePageLocators.PRODUCT_PRICE[nr]).text
         product_description = self.driver.find_element(*HomePageLocators.PRODUCT_DESCRIPTION[nr]).text

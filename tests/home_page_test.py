@@ -42,9 +42,17 @@ class HomePageTest(BaseTest):
         self.home_page.sign_up_button_click()
         self.assertTrue(self.home_page.check_if_sign_up_modal_visible(), "Sign up modal not visible. ")
 
+    def test_log_out_button_click(self):
+        # fill log in modal
+        self.home_page.log_in_button_click()
+        self.home_page.fill_username_field('ahk')
+        self.home_page.fill_password_field('ahk')
+        self.home_page.log_in_modal_button_click()
+        # -- continue...
+    # ----
     @unittest.skip("test_next_prev_button")
     def test_next_prev_button(self):
-        pass
+        self.home_page.log_in_button_click()
 
     @unittest.skip("test_locators")
     def test_locators(self):
