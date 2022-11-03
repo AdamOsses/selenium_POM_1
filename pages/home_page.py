@@ -31,6 +31,14 @@ class HomePage(BasePage):
         else:
             return True
 
+    def check_if_log_in_button_visible(self):
+        try:
+            self.driver.find_element(*HomePageLocators.LOG_IN_BUTTON)
+        except NoSuchElementException:
+            return False
+        else:
+            return True
+
     def check_if_sign_up_modal_visible(self):
         try:
             self.driver.find_element(*HomePageLocators.SIGN_UP_MODAL)
@@ -40,8 +48,20 @@ class HomePage(BasePage):
             return True
 
     def check_if_log_out_button_visible(self):
-        pass
-        # click log in // fill name & pswrd // clickbtn login - check if logout btn visible
+        try:
+            self.driver.find_element(*HomePageLocators.LOG_OUT)
+        except NoSuchElementException:
+            return False
+        else:
+            return True
+
+    def check_if_welkome_user_visible(self):
+        try:
+            self.driver.find_element(*HomePageLocators.WELCOME_USER)
+        except NoSuchElementException:
+            return False
+        else:
+            return True
 
     def fill_username_field(self, name):
         #assert isinstance(self.driver, webdriver.Chrome())
