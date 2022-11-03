@@ -49,6 +49,7 @@ class HomePageTest(BaseTest):
         self.home_page.fill_password_field('ahk')
         self.home_page.log_in_modal_button_click()
         self.assertTrue(self.home_page.check_if_log_out_button_visible(), "Log out button not visible.")
+        # print(self.home_page.return_name_of_logged_user())
         self.home_page.log_out_button_click()
         self.assertFalse(self.home_page.check_if_log_out_button_visible(), "Log out still visible.")
 

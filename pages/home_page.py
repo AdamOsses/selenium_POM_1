@@ -39,6 +39,9 @@ class HomePage(BasePage):
         else:
             return True
 
+    def log_in_user(self, name, password):
+        pass
+    
     def check_if_sign_up_modal_visible(self):
         try:
             self.driver.find_element(*HomePageLocators.SIGN_UP_MODAL)
@@ -55,7 +58,7 @@ class HomePage(BasePage):
         else:
             return True
 
-    def check_if_welkome_user_visible(self):
+    def check_if_welcome_user_visible(self):
         try:
             self.driver.find_element(*HomePageLocators.WELCOME_USER)
         except NoSuchElementException:
@@ -63,8 +66,14 @@ class HomePage(BasePage):
         else:
             return True
 
+    def return_name_of_logged_user(self):
+        # assert isinstance(self.driver, webdriver.Chrome())
+        welcome_string = self.driver.find_element(*HomePageLocators.WELCOME_USER)
+        user_name = welcome_string.text[8:]  # [8:] - slice off "Welcome "
+        print(f'--{user_name}--')
+        return user_name
+
     def fill_username_field(self, name):
-        #assert isinstance(self.driver, webdriver.Chrome())
         username_field = self.driver.find_element(*HomePageLocators.USERNAME_FIELD)
         username_field.click()
         username_field.clear()
