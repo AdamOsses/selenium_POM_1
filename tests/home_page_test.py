@@ -34,14 +34,6 @@ class HomePageTest(BaseTest):
         self.home_page.about_us_button_click()
         self.assertTrue(self.home_page.check_if_about_us_modal_visible(), "About us modal not visible.")
 
-    def test_log_in_button_click(self):
-        self.home_page.log_in_button_click()
-        self.assertTrue(self.home_page.check_if_log_in_modal_visible(), "Log in modal not visible.")
-
-    def test_sign_up_button_click(self):
-        self.home_page.sign_up_button_click()
-        self.assertTrue(self.home_page.check_if_sign_up_modal_visible(), "Sign up modal not visible.")
-
     def test_log_out_button_click(self):
         self.home_page.log_in_user('ahk', 'ahk')
         self.assertTrue(self.home_page.check_if_log_out_button_visible(), "Log out button not visible.")
@@ -49,10 +41,29 @@ class HomePageTest(BaseTest):
         self.home_page.log_out_button_click()
         self.assertFalse(self.home_page.check_if_log_out_button_visible(), "Log out still visible.")
 
+    def test_log_in_button_click(self):
+        self.home_page.log_in_button_click()
+        self.assertTrue(self.home_page.check_if_log_in_modal_visible(), "Log in modal not visible.")
+
     def test_display_username(self):
         self.home_page.log_in_user('ahk', 'ahk')
         displayed_username = self.home_page.return_name_of_logged_user()
         self.assertEqual(displayed_username, 'ahk', 'Incorrect username displayed.')
+
+    def test_log_in_no_password(self):
+        # skip psswrd field
+        self.home_page.log_in_button_click()
+        self.home_page.fill_username_field('ahk')
+        self.home_page.log_in_modal_button_click()
+        # Alert popup box
+        alert_box = self.driver.switch_to.alert
+        msg = alert_box.text
+        #print("Alert box msg.: " + msg)
+        self.assertEqual(msg, 'Please fill out Username and Password.')
+
+    def test_sign_up_button_click(self):
+        self.home_page.sign_up_button_click()
+        self.assertTrue(self.home_page.check_if_sign_up_modal_visible(), "Sign up modal not visible.")
 
     # -----------------------------
     @unittest.skip("test_next_prev_button")
