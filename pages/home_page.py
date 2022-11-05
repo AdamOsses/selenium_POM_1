@@ -40,8 +40,12 @@ class HomePage(BasePage):
             return True
 
     def log_in_user(self, name, password):
-        pass
-    
+        #assert isinstance(self.driver, webdriver.Chrome())
+        self.driver.find_element(*HomePageLocators.LOG_IN).click()
+        self.fill_username_field(name)
+        self.fill_password_field(password)
+        self.log_in_modal_button_click()
+
     def check_if_sign_up_modal_visible(self):
         try:
             self.driver.find_element(*HomePageLocators.SIGN_UP_MODAL)
@@ -67,7 +71,6 @@ class HomePage(BasePage):
             return True
 
     def return_name_of_logged_user(self):
-        # assert isinstance(self.driver, webdriver.Chrome())
         welcome_string = self.driver.find_element(*HomePageLocators.WELCOME_USER)
         user_name = welcome_string.text[8:]  # [8:] - slice off "Welcome "
         print(f'--{user_name}--')
@@ -86,7 +89,7 @@ class HomePage(BasePage):
         password_field.send_keys(password)
 
     def log_in_modal_button_click(self):
-        self.driver.find_element(*HomePageLocators.LOG_IN_BUTTON).click()
+        self.driver.find_element(*HomePageLocators.LOG_IN_MODAL_BUTTON).click()
 
     # -------
     def get_all_products_on_page(self):
