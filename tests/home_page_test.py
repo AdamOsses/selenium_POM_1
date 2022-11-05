@@ -45,9 +45,14 @@ class HomePageTest(BaseTest):
     def test_log_out_button_click(self):
         self.home_page.log_in_user('ahk', 'ahk')
         self.assertTrue(self.home_page.check_if_log_out_button_visible(), "Log out button not visible.")
-        print(self.home_page.return_name_of_logged_user())
+        # print(self.home_page.return_name_of_logged_user())
         self.home_page.log_out_button_click()
         self.assertFalse(self.home_page.check_if_log_out_button_visible(), "Log out still visible.")
+
+    def test_display_username(self):
+        self.home_page.log_in_user('ahk', 'ahk')
+        displayed_username = self.home_page.return_name_of_logged_user()
+        self.assertEqual(displayed_username, 'ahk', 'Incorrect username displayed.')
 
     # -----------------------------
     @unittest.skip("test_next_prev_button")
