@@ -61,6 +61,22 @@ class HomePageTest(BaseTest):
         #print("Alert box msg.: " + msg)
         self.assertEqual(msg, 'Please fill out Username and Password.')
 
+    def test_log_in_no_username(self):
+        self.home_page.log_in_button_click()
+        self.home_page.fill_password_field('ahk')
+        self.home_page.log_in_modal_button_click()
+        alert_box = self.driver.switch_to.alert
+        msg = alert_box.text
+        self.assertEqual(msg, 'Please fill out Username and Password.')
+
+    def test_log_in_no_username_and_password(self):
+        # skip psswrd and username field
+        self.home_page.log_in_button_click()
+        self.home_page.log_in_modal_button_click()
+        alert_box = self.driver.switch_to.alert
+        msg = alert_box.text
+        self.assertEqual(msg, 'Please fill out Username and Password.')
+
     def test_sign_up_button_click(self):
         self.home_page.sign_up_button_click()
         self.assertTrue(self.home_page.check_if_sign_up_modal_visible(), "Sign up modal not visible.")
@@ -69,6 +85,7 @@ class HomePageTest(BaseTest):
     @unittest.skip("test_next_prev_button")
     def test_next_prev_button(self):
         self.home_page.log_in_button_click()
+        # tbd
 
     @unittest.skip("test_locators")
     def test_locators(self):
