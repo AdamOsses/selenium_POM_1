@@ -10,4 +10,4 @@ tests_list = [
 ]
 
 test_suite = unittest.TestSuite(tests_list)
-unittest.TextTestRunner().run(test_suite)
+unittest.TextTestRunner(verbosity=2).run(test_suite)
