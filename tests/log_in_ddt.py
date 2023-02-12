@@ -20,8 +20,8 @@ class LogInTest(BaseTest):
             log_in_alert_2 = Alert(self.driver)
             #^^ Alertbox handling - two methods ^^
             #print(f"\n->{log_in_alert_1.text}<-\n->{log_in_alert_2.text}<-")
-            self.assertEqual(log_in_alert_1.text, "User does not exist", "! Alert present but wrong message. !")
-            self.assertEqual(log_in_alert_2.text, "User does not exist", "! Alert present but wrong message. !")
+            self.assertEqual(log_in_alert_1.text, "User does not exist.", "! Alert present but wrong message. !")
+            self.assertEqual(log_in_alert_2.text, "User does not exist.", "! Alert present but wrong message. !")
         except TimeoutException:
             self.assertTrue(False, "! Alertbox should be present. !")
 
