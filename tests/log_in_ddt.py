@@ -4,6 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from ddt import ddt, data, unpack
 from tests.base_test import BaseTest
+from read_csv import read_csv_data
 
 @ddt
 class LogInTest(BaseTest):
@@ -26,4 +27,16 @@ class LogInTest(BaseTest):
             self.assertTrue(False, "! Alertbox should be present. !")
 
 
-
+    @data(*read_csv_data('data.csv')) # * unpack whole list to rows
+    @unpack
+    def test_wrong_username_and_password_from_csv(self, username, password):
+        self.home_page.log_in_button_click()
+        self.home_page.fill_username_field(username)
+        self.home_page.fill_password_field(password)
+        self.home_page.log_in_modal_button_click()
+        try:
+            WebDriverWait(self.driver, 3).until(EC.alert_is_present())
+            log_in_alert_1 = self.driver.switch_to.alert
+            self.assertEqual(log_in_alert_1.text, "User does not exist.", "! Alert present but wrong message. !")
+        except TimeoutException:
+            self.assertTrue(False, "! Alertbox should be present. !")
