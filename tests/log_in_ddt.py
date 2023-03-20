@@ -4,7 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from ddt import ddt, data, unpack
 from tests.base_test import BaseTest
-from read_csv import read_csv_data
+from tests.read_csv import read_csv_data
 
 @ddt
 class LogInTest(BaseTest):
@@ -27,7 +27,7 @@ class LogInTest(BaseTest):
             self.assertTrue(False, "! Alertbox should be present. !")
 
 
-    @data(*read_csv_data('data.csv')) # * unpack whole list to rows
+    @data(*read_csv_data('tests/data.csv')) # * unpack whole list to rows
     @unpack
     def test_wrong_username_and_password_from_csv(self, username, password):
         self.home_page.log_in_button_click()

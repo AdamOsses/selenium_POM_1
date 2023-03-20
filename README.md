@@ -16,5 +16,5 @@ wget -N https://chromedriver.storage.googleapis.com/108.0.5359.22/chromedriver_l
 unzip ~/chromedriver_linux64.zip -d ~/
 rm ~/chromedriver_linux64.zip
 sudo mv -f ~/chromedriver /usr/local/bin/chromedriver
-chmod +x chromedriver*
+chmod +x /usr/local/bin/chromedriver
 ```  

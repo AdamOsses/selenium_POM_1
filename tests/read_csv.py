@@ -1,5 +1,6 @@
 import csv
 
+
 def read_csv_data(filename):
     rows = []
     csv_data = open(str(filename), "r")
