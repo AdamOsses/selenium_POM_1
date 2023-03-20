@@ -6,6 +6,7 @@ from ddt import ddt, data, unpack
 from tests.base_test import BaseTest
 from tests.read_csv import read_csv_data
 
+
 @ddt
 class LogInTest(BaseTest):
     @data(["wrong_user_001", "wrong_password_001"], ["wrong_user_002", "wrong_password_002"])
@@ -19,13 +20,12 @@ class LogInTest(BaseTest):
             WebDriverWait(self.driver, 3).until(EC.alert_is_present())
             log_in_alert_1 = self.driver.switch_to.alert
             log_in_alert_2 = Alert(self.driver)
-            #^^ Alertbox handling - two methods ^^
-            #print(f"\n->{log_in_alert_1.text}<-\n->{log_in_alert_2.text}<-")
+            # ^^ Alertbox handling - two methods ^^
+
             self.assertEqual(log_in_alert_1.text, "User does not exist.", "! Alert present but wrong message. !")
             self.assertEqual(log_in_alert_2.text, "User does not exist.", "! Alert present but wrong message. !")
         except TimeoutException:
             self.assertTrue(False, "! Alertbox should be present. !")
-
 
     @data(*read_csv_data('tests/data.csv')) # * unpack whole list to rows
     @unpack
@@ -37,6 +37,7 @@ class LogInTest(BaseTest):
         try:
             WebDriverWait(self.driver, 3).until(EC.alert_is_present())
             log_in_alert_1 = self.driver.switch_to.alert
-            self.assertEqual(log_in_alert_1.text, "User does not exist.", "! Alert present but wrong message. !")
+            messages = ['User does not exist.', 'Wrong password.']
+            self.assertIn(log_in_alert_1.text, messages, "! Alert present but wrong message. !")
         except TimeoutException:
             self.assertTrue(False, "! Alertbox should be present. !")

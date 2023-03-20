@@ -12,7 +12,6 @@ def read_csv_data(filename):
     # add rows to list
     for row in content:
         rows.append(row)
-        #print(row)
 
-    print(rows)
+    # print(rows)
     return rows
