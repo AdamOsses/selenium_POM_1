@@ -1,6 +1,9 @@
 import unittest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
 from tests.base_test import BaseTest
 from pages.product_page import ProductPage
 from time import sleep
@@ -82,9 +85,15 @@ class HomePageTest(BaseTest):
         self.assertTrue(self.home_page.check_if_sign_up_modal_visible(), "Sign up modal not visible.")
 
     # -----------------------------
-    @unittest.skip("test_next_prev_button")
+    # @unittest.skip("test_next_prev_button")
     def test_next_prev_button(self):
-        self.home_page.log_in_button_click()
+        page_1_products = self.home_page.get_all_products_on_page()
+        self.home_page.next_button_click()
+        sleep(1)  # reload products
+        page_2_products = self.home_page.get_all_products_on_page()
+        self.assertIsNotNone(page_2_products, "0 product on page after Next button click.")
+        self.assertNotEqual(page_1_products, page_2_products, 'Same product list after Next button click.')
+        # count all comodities
         # tbd
 
     @unittest.skip("test_locators")
