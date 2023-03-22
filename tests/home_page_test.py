@@ -1,9 +1,5 @@
 import unittest
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
 from tests.base_test import BaseTest
 from pages.product_page import ProductPage
 from time import sleep
@@ -61,7 +57,7 @@ class HomePageTest(BaseTest):
         # Alert popup box
         alert_box = self.driver.switch_to.alert
         msg = alert_box.text
-        #print("Alert box msg.: " + msg)
+        # print("Alert box msg.: " + msg)
         self.assertEqual(msg, 'Please fill out Username and Password.')
 
     def test_log_in_no_username(self):
@@ -84,17 +80,18 @@ class HomePageTest(BaseTest):
         self.home_page.sign_up_button_click()
         self.assertTrue(self.home_page.check_if_sign_up_modal_visible(), "Sign up modal not visible.")
 
-    # -----------------------------
-    # @unittest.skip("test_next_prev_button")
     def test_next_prev_button(self):
-        page_1_products = self.home_page.get_all_products_on_page()
+        page_1_products = self.home_page.get_all_products_data_on_page()
         self.home_page.next_button_click()
         sleep(1)  # reload products
-        page_2_products = self.home_page.get_all_products_on_page()
+        page_2_products = self.home_page.get_all_products_data_on_page()
         self.assertIsNotNone(page_2_products, "0 product on page after Next button click.")
         self.assertNotEqual(page_1_products, page_2_products, 'Same product list after Next button click.')
-        # count all comodities
-        # tbd
+        self.home_page.prev_button_click()
+        sleep(1)  # reload products
+        page_1_products_after_prev = self.home_page.get_all_products_data_on_page()
+        self.assertEqual(page_1_products, page_1_products_after_prev,
+                         'Incorrect product list after Previous button click.')
 
     @unittest.skip("test_locators")
     def test_locators(self):
