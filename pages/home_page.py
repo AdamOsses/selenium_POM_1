@@ -7,6 +7,7 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 
 
 class HomePage(BasePage):
+    # --------- top navbar elements
     def check_if_contact_modal_visible(self):
         try:
             self.driver.find_element(*HomePageLocators.CONTACT_MODAL)
@@ -91,7 +92,19 @@ class HomePage(BasePage):
     def log_in_modal_button_click(self):
         self.driver.find_element(*HomePageLocators.LOG_IN_MODAL_BUTTON).click()
 
-    # ------- products --------------
+    # =============== carousel ===============
+    def return_carousel_active_element(self):
+        active_element = self.driver.find_element(*HomePageLocators.CAROUSEL_ACTIVE_ELEMENT)
+        print(active_element)
+        return active_element
+
+    def carousel_prev_button_click(self):
+        self.driver.find_element(*HomePageLocators.PREV_CAROUSEL).click()
+
+    def carousel_next_button_click(self):
+        self.driver.find_element(*HomePageLocators.NEXT_CAROUSEL).click()
+
+    # =============== products ===============
     def get_all_products_on_page(self):
         products = self.driver.find_elements(*HomePageLocators.PRODUCTS)
         return products

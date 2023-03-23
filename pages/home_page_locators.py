@@ -4,6 +4,11 @@ from pages.site_locators import SiteLocators
 
 class HomePageLocators(SiteLocators):
 
+    # Localisators from top to bottom page
+    CAROUSEL_ACTIVE_ELEMENT = (By.XPATH, '//*[@class="carousel-item active"]//following-sibling::img')
+    NEXT_CAROUSEL = (By.XPATH, '//*[@class="carousel-control-next"]')
+    PREV_CAROUSEL = (By.XPATH, '//*[@class="carousel-control-prev"]')
+
     # products locators
     PRODUCTS = (By.XPATH, '//img[@class="card-img-top img-fluid"]')
     PRODUCT_NAME = []

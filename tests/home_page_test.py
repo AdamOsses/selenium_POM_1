@@ -80,6 +80,20 @@ class HomePageTest(BaseTest):
         self.home_page.sign_up_button_click()
         self.assertTrue(self.home_page.check_if_sign_up_modal_visible(), "Sign up modal not visible.")
 
+    # ----------- carousel --------------
+    def test_carousel_slideshow_works(self):
+        element_1 = self.home_page.return_carousel_active_element()
+        sleep(5)
+        element_2 = self.home_page.return_carousel_active_element()
+        self.assertNotEqual(element_1, element_2, 'Carousel should change active elements.')
+        sleep(5)    # tmp solution
+        element_3 = self.home_page.return_carousel_active_element()
+        self.assertNotEqual(element_2, element_3, 'Carousel should change active elements.')
+
+    def test_carousel_next_prev_buttons(self):
+        pass
+
+    # ----------- products -------------
     def test_next_prev_button(self):
         page_1_products = self.home_page.get_all_products_data_on_page()
         self.home_page.next_button_click()
