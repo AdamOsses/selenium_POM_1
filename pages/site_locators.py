@@ -9,7 +9,7 @@ class SiteLocators:
     ABOUT_US = (By.XPATH, '//*[@data-target="#videoModal"]')
     CART = (By.ID, "cartur")
 
-    LOG_IN = (By.XPATH, '//a[@style="display: block;" and @id="login2"]') # "display:none" - not visible
+    LOG_IN = (By.XPATH, '//a[@style="display: block;" and @id="login2"]')  # "display:none" - not visible
     SIGN_UP = (By.XPATH, '//a[@style="display: block;" and @id="signin2"]')
     LOG_OUT = (By.XPATH, '//a[@style="display: block;" and @id="logout2"]')
     WELCOME_USER = (By.XPATH, '//a[@style="display: block;" and @id="nameofuser"]')

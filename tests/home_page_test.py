@@ -86,12 +86,20 @@ class HomePageTest(BaseTest):
         sleep(5)
         element_2 = self.home_page.return_carousel_active_element()
         self.assertNotEqual(element_1, element_2, 'Carousel should change active elements.')
-        sleep(5)    # tmp solution
+        sleep(5)    # tmp solution          
         element_3 = self.home_page.return_carousel_active_element()
         self.assertNotEqual(element_2, element_3, 'Carousel should change active elements.')
 
     def test_carousel_next_prev_buttons(self):
-        pass
+        element_1 = self.home_page.return_carousel_active_element()
+        self.home_page.carousel_next_button_click()
+        sleep(1)
+        element_2 = self.home_page.return_carousel_active_element()
+        self.assertNotEqual(element_1, element_2, 'Same carousel element after Next button click.')
+        self.home_page.carousel_prev_button_click()
+        sleep(1)
+        element_3 = self.home_page.return_carousel_active_element()
+        self.assertEqual(element_1, element_3, 'Wrong carousel element.')
 
     # ----------- products -------------
     def test_next_prev_button(self):

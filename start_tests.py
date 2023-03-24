@@ -2,7 +2,7 @@ import unittest
 from tests.home_page_test import HomePageTest
 from tests.log_in_ddt import LogInTest
 
-test_case_to_test = "test_carousel_slideshow_works"
+test_case_to_test = "test_carousel_next_prev_buttons"
 
 # tests to run
 tests_list = [
