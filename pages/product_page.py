@@ -5,6 +5,7 @@ from pages.product_page_locators import ProductPageLocators
 
 
 class ProductPage(BasePage):
+    # ====== Click on Product Store or Home should send us back to home page. ======
     def click_product_store_icon(self):
         self.driver.find_element(*ProductPageLocators.PRODUCTS_STORE).click()
 

@@ -4,7 +4,6 @@ from tests.base_test import BaseTest
 from pages.product_page import ProductPage
 from time import sleep
 
-
 class HomePageTest(BaseTest):
     # @unittest.skip("test_home_page_respond")
     def test_home_page_respond(self):
