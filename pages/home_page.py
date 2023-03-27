@@ -119,8 +119,6 @@ class HomePage(BasePage):
         product_name = self.driver.find_element(*HomePageLocators.PRODUCT_NAME[nr]).text
         product_price = self.driver.find_element(*HomePageLocators.PRODUCT_PRICE[nr]).text
         product_description = self.driver.find_element(*HomePageLocators.PRODUCT_DESCRIPTION[nr]).text
-        # product_by_number = [product_name, product_price, product_description]
-
         product_by_number = {'product_image': product_image,
                              'product_href': product_href,
                              'product_name': product_name,
@@ -128,9 +126,6 @@ class HomePage(BasePage):
                              'product_description': product_description,
                              }
         return product_by_number
-
-    def click_product_by_number(self, nr):
-        pass
 
     def get_all_products_data_on_page(self):
         all_product_data = []

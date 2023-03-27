@@ -4,6 +4,7 @@ from tests.base_test import BaseTest
 from pages.product_page import ProductPage
 from time import sleep
 
+
 class HomePageTest(BaseTest):
     # @unittest.skip("test_home_page_respond")
     def test_home_page_respond(self):
@@ -136,8 +137,3 @@ class HomePageTest(BaseTest):
         sleep(2)
         self.driver.get(self.product_page.get_page_url("cart_page"))
         sleep(2)
-
-
-
-
-
