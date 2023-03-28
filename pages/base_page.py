@@ -1,6 +1,7 @@
 from selenium import webdriver
 from pages.site_locators import SiteLocators
 
+
 class BasePage:
     def __init__(self, driver):
         self.driver = driver
@@ -8,7 +9,7 @@ class BasePage:
     def get_page_url(self, name):
         return SiteLocators.PAGE_URL[name]
 
-    # entire site buttons
+    # =========== entire site buttons ================
     def product_store_button_click(self):
         self.driver.find_element(*SiteLocators.PRODUCTS_STORE).click()
 

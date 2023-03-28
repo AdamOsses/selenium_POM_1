@@ -19,9 +19,5 @@ class ProductPage(BasePage):
             # Page didn't load propretly.
             return False
 
-    # ====== Click on Product Store or Home should send us back to home page. ======
-    def click_product_store_icon(self):
-        self.driver.find_element(*ProductPageLocators.PRODUCTS_STORE).click()
-
-    def click_home_button(self):
-        self.driver.find_element(*ProductPageLocators.HOME).click()
+    def click_add_to_cart_button(self):
+        pass

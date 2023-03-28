@@ -8,13 +8,13 @@ class HomePageLocators(SiteLocators):
     NEXT_CAROUSEL = (By.XPATH, '//*[@class="carousel-control-next"]')
     PREV_CAROUSEL = (By.XPATH, '//*[@class="carousel-control-prev"]')
 
-    # products locators
-    PRODUCTS = (By.XPATH, '//img[@class="card-img-top img-fluid"]')
+    # Products locators
+    PRODUCTS = (By.XPATH, '//img[@class="card-img-top img-fluid"]')   # product count
     PRODUCT_IMAGE = []
     PRODUCT_NAME = []
     PRODUCT_PRICE = []
     PRODUCT_DESCRIPTION = []
-    # max 9 products on page
+    # Max 9 products on page
     for i in range(1, 10):
         PRODUCT_IMAGE.append((By.XPATH, f'(//div[@class="card h-100"]/a[@href])[{i}]'))
         PRODUCT_NAME.append((By.XPATH, f'(//a[@class="hrefch"])[{i}]'))

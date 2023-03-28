@@ -105,12 +105,8 @@ class HomePage(BasePage):
         self.driver.find_element(*HomePageLocators.NEXT_CAROUSEL).click()
 
     # =============== products ===============
-    def get_all_products_on_page(self):
-        products = self.driver.find_elements(*HomePageLocators.PRODUCTS)
-        return products
-
     def get_products_count_on_page(self):
-        products_count = self.get_all_products_on_page()
+        products_count = self.driver.find_elements(*HomePageLocators.PRODUCTS)
         return len(products_count)
 
     def get_product_data_by_number(self, nr):

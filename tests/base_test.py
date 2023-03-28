@@ -15,7 +15,6 @@ class BaseTest(unittest.TestCase):
         self.driver.get("https://www.demoblaze.com/")
         self.driver.implicitly_wait(10)
         self.create_pages()
-        #self.home_page = HomePage(self.driver)
 
     def tearDown(self):
         self.driver.quit()

@@ -8,4 +8,4 @@ class ProductPageLocators(SiteLocators):
     PRODUCT_PRICE = (By.XPATH, '//h3[@class="price-container"]')
     PRODUCT_DESCRIPTION = (By.ID, 'more-information')
 
-    ADD_TO_CART_BUTTON = ((By.XPATH, '//a[@class="btn btn-success btn-lg"]'))
+    ADD_TO_CART_BUTTON = (By.XPATH, '//a[@class="btn btn-success btn-lg"]')
