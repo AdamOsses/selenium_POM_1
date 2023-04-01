@@ -33,6 +33,5 @@ class ProductPage(BasePage):
         }
         return product_data
 
-
     def click_add_to_cart_button(self):
-        pass
+        self.driver.find_element(*ProductPageLocators.ADD_TO_CART_BUTTON).click()
