@@ -16,7 +16,7 @@ class ProductPage(BasePage):
             # presence_of_element_located() need tuple, not pair (By... , '')
             return True
         except TimeoutException:
-            # Page didn't load propretly.
+            # Page didn't load properly.
             return False
 
     def get_product_data(self):
@@ -35,3 +35,4 @@ class ProductPage(BasePage):
 
     def click_add_to_cart_button(self):
         self.driver.find_element(*ProductPageLocators.ADD_TO_CART_BUTTON).click()
+

@@ -2,6 +2,8 @@ import unittest
 import random
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from tests.base_test import BaseTest
 from tests.base_test import HomePage
 from pages.product_page import ProductPage
@@ -39,9 +41,9 @@ class ProductPageTest(BaseTest):
     def test_add_to_cart_message(self):
         selected_product = self.get_random_product()
         selected_product['product_href'].click()
-        sleep(1)
+        self.product_page.check_if_page_loaded()
         self.product_page.click_add_to_cart_button()
-        sleep(2)
+        WebDriverWait(self.driver, 2).until(EC.alert_is_present(), "Alert box not visible.")
         alert_box_text = self.driver.switch_to.alert.text
         print("Alert box msg.: " + alert_box_text)
         self.assertEqual(alert_box_text, 'Product added', 'Wrong alert box message.')
